@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  #group routes
+  resources :groups, only: [:index, :show, :new, :edit, :create, :update]
+
   #users routes
   get     '/signup',  to: 'users#new'
   post    '/signup',  to: 'users#create'

@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user
 
   # GET /groups
   # GET /groups.json
@@ -25,41 +26,41 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
+    @group.user_id = current_user.id
+    @group.icon = params[:icon]
 
-    respond_to do |format|
-      if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
-        format.json { render :show, status: :created, location: @group }
-      else
-        format.html { render :new }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
+    if @group.save
+      redirect_to groups_path, notice: 'Group was successfully created.' 
+    elsif @group.errors[:icon].present?
+      redirect_to new_group_url, notice: @group.errors[:icon].first  
+    else
+      redirect_to new_group_url, notice: @group.errors[:name].first
     end
+   
   end
 
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
-    respond_to do |format|
-      if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
-        format.json { render :show, status: :ok, location: @group }
-      else
-        format.html { render :edit }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
+    @group.icon = params[:icon]
+    if @group.update(group_params)
+      redirect_to groups_path, notice: 'Group was successfully updated.'
+    elsif @group.errors[:icon].present?
+      redirect_to edit_group_url, notice: @group.errors[:icon].first
+    else
+      redirect_to edit_group_url, notice: @group.errors[:name].first
     end
   end
 
   # DELETE /groups/1
   # DELETE /groups/1.json
-  def destroy
-    @group.destroy
-    respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @group.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  #shopping_list routes
+  resources :shopping_lists, only: [:index, :show, :new, :edit, :create, :update]
+  get     '/external_shopping_lists',  to: 'shopping_lists#list_external'
+  get     '/group_shopping_lists',  to: 'shopping_lists#group_shopping_lists'
+  get     '/list_order_ancient',  to: 'shopping_lists#list_order_ancient'
+  get     '/checkout',  to: 'shopping_lists#checkout'
+  get     '/external_shopping_lists',  to: 'shopping_lists#list_external'
+
   #group routes
   resources :groups, only: [:index, :show, :new, :edit, :create, :update]
 

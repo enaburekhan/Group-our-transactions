@@ -8,7 +8,7 @@ class User < ApplicationRecord
                        format: { with: /\A[a-zA-Z0-9]+\z/, message: 'Username must be alphanumeric' }
   
   def all_total_amount
-    shopping_lists.where(active: true).sum(:price)
+    shopping_lists.where(active: true).sum(:amount)
   end
   
   def list_shopping_lists_join_groups

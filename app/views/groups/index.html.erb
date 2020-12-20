@@ -47,7 +47,7 @@
       <h2><%= link_to group.name, group %></h2>      
       <h3><%= group.created_at.strftime("%b %d, %Y - %I:%M%p" ).downcase %></h3>
     </div>
-    <div class="price-shopping_list"><%= group.creator.username %></div>
+    <div class="amount-shopping_list"><%= group.creator.username %></div>
   </div>
 <% end %>
 <%= button_to "New", new_group_path,  :class => "btn new-shopping_list-button", :method => :get %>

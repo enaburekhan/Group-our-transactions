@@ -1,74 +1,79 @@
 class ShoppingListsController < ApplicationController
-  before_action :set_shopping_list, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user
+  before_action :set_shopping_list, only: %i[show edit update destroy checkout]
+  before_action :set_group, only: %i[group_shopping_lists]
+  include ShoppingListsHelper
 
-  # GET /shopping_lists
-  # GET /shopping_lists.json
   def index
-    @shopping_lists = ShoppingList.all
+    @shopping_lists = current_user.shopping_lists_order_recent
   end
 
-  # GET /shopping_lists/1
-  # GET /shopping_lists/1.json
+  def list_order_ancient
+    @shopping_lists = current_user.shopping_lists_order_ancient
+  end
+
+  def list_external
+    @shopping_lists = current_user.list_shopping_lists_join_groups
+    @total = total_amount_on_external(@shopping_lists)
+  end
+
+  def group_shopping_lists
+    @shopping_lists = @group.shopping_lists.where(active: true)
+    @total = total_amount_on_external(@shopping_lists)
+  end
+
   def show
+    @shopping_list
   end
 
-  # GET /shopping_lists/new
+  def checkout
+    @payment = Payment.new
+  end
+
   def new
+    @groups_added = []
     @shopping_list = ShoppingList.new
+    @group = Group.all
   end
 
-  # GET /shopping_lists/1/edit
   def edit
+    @group = Group.includes(:shopping_lists).all
   end
 
-  # POST /shopping_lists
-  # POST /shopping_lists.json
   def create
     @shopping_list = ShoppingList.new(shopping_list_params)
+    @shopping_list.author_id = current_user.id
+    @shopping_list.active = true
+    @groups_ids = params[:shopping_list][:group_ids]
 
-    respond_to do |format|
-      if @shopping_list.save
-        format.html { redirect_to @shopping_list, notice: 'Shopping list was successfully created.' }
-        format.json { render :show, status: :created, location: @shopping_list }
-      else
-        format.html { render :new }
-        format.json { render json: @shopping_list.errors, status: :unprocessable_entity }
+    if @shopping_list.save
+      @groups_ids&.each do |prod|
+        @shopping_list.groups << Group.find(prod)
       end
+      redirect_to shopping_lists_path, notice: 'ShoppingList was successfully created.'
+    elsif @shopping_list.errors[:amount].present?
+      redirect_to new_shopping_list_url, notice: @shopping_list.errors[:amount].first
+    else
+      redirect_to new_shopping_list_url, notice: @shopping_list.errors[:name].first
     end
   end
 
-  # PATCH/PUT /shopping_lists/1
-  # PATCH/PUT /shopping_lists/1.json
   def update
-    respond_to do |format|
-      if @shopping_list.update(shopping_list_params)
-        format.html { redirect_to @shopping_list, notice: 'Shopping list was successfully updated.' }
-        format.json { render :show, status: :ok, location: @shopping_list }
+    @groups_ids = params[:shopping_list][:group_ids]
+
+    if @shopping_list.update(shopping_list_params)
+      if !@groups_ids.nil?
+        @groups_ids.each do |prod|
+          @shopping_list.groups << Group.find(prod)
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @shopping_list.errors, status: :unprocessable_entity }
+        ShoppingListsGroup.where(shopping_list_id: params[:id]).destroy_all
       end
+      redirect_to shopping_lists_path, notice: 'ShoppingList was successfully udpated.'
+    elsif @shopping_list.errors[:amount].present?
+      redirect_to edit_shopping_list_url, notice: @shopping_list.errors[:amount].first
+    else
+      redirect_to edit_shopping_list_url, notice: @shopping_list.errors[:name].first
     end
   end
-
-  # DELETE /shopping_lists/1
-  # DELETE /shopping_lists/1.json
-  def destroy
-    @shopping_list.destroy
-    respond_to do |format|
-      format.html { redirect_to shopping_lists_url, notice: 'Shopping list was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_shopping_list
-      @shopping_list = ShoppingList.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def shopping_list_params
-      params.require(:shopping_list).permit(:name, :amount, :author_id)
-    end
 end

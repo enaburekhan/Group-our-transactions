@@ -1,19 +1,46 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
-  <%= @shopping_list.name %>
+  <%#= @shopping_list.name %>
 </p>
 
 <p>
   <strong>Amount:</strong>
-  <%= @shopping_list.amount %>
+  <%#= @shopping_list.amount %>
 </p>
 
 <p>
   <strong>Author:</strong>
-  <%= @shopping_list.author_id %>
+  <%#= @shopping_list.author_id %>
 </p>
 
-<%= link_to 'Edit', edit_shopping_list_path(@shopping_list) %> |
-<%= link_to 'Back', shopping_lists_path %>
+<%#= link_to 'Edit', edit_shopping_list_path(@shopping_list) %> |
+<%#= link_to 'Back', shopping_lists_path %>-->
+
+<% provide(:navbar_page_title, "shopping_list information") %>
+<br><br>
+<p class="font-label-style">
+  <strong>Name:</strong>
+  <%= @shopping_list.name %>
+</p>
+<p class="font-label-style">
+  <strong>Amount:</strong>
+  <%= @shopping_list.amount %>
+</p>
+<p class="font-label-style">
+  <strong>Icon:</strong>
+  
+   <% if @shopping_list.icons? %>
+          <td> 
+            <% @shopping_list.groups.each do |type| %> 
+              <i class="<%= type.icon %>"></i> 
+            <% end %>
+          </td>
+        <% else %>
+          <td> <i class="fas fa-question-circle"></i> </td>
+    <% end%> 
+</p>
+<br><br>
+<%= link_to 'Edit', edit_shopping_list_path(@shopping_list), class: 'font-label-style link-edit-back' %> |
+<%= link_to 'Back', shopping_lists_path, class: 'font-label-style link-edit-back' %>

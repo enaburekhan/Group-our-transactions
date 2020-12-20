@@ -1,0 +1,48 @@
+<% provide(:navbar_page_title, "Proceed payment") %>
+<br>
+<%= form_with(model: @payment, local: true) do |form| %>
+<div class="checkout-wrapper">
+
+  <p class="font-label-style checkout-items border-bottom pb-5">
+    <span>
+      <% if @shopping_list.icons? %>            
+          <% @shopping_list.groups.each do |type| %> 
+            <i class="<%= type.icon %>"></i> 
+          <% end %>            
+      <% else %>
+          <i class="fas fa-question-circle"></i> 
+      <% end%> 
+    </span>
+    <%= @shopping_list.name %>
+  </p>
+
+  <p class="font-label-style checkout-items">
+    <strong>Transaction code:</strong>
+    <%= code =  "CODE234723" %>
+    
+    <%= form.hidden_field :transaction_code, :value => code %>
+  </p>
+
+  <p class="font-label-style checkout-items">
+    <strong>Date:</strong>
+    <%=   Time.zone.now .strftime("%b %d, %Y - %I:%M%p" ).downcase   %>    
+  </p>
+
+  <p class="font-label-style checkout-items">
+    <strong>Taxes 3%:</strong>
+    <%=  number_to_currency(@shopping_list.amount*0.3, precision: 2)  %>
+  </p>
+
+  <p class="font-label-style checkout-items border-bottom pb-5">
+    <strong>Total Payment:</strong>
+    <%= total_payment= number_to_currency(@shopping_list.amount + @shopping_list.price*0.3, precision: 2)  %>    
+    <%= form.hidden_field :amount, :value => @shopping_list.amount + @shopping_list.amount*0.3 %>
+    <%= form.hidden_field :shopping_list_id, :value => @shopping_list.id %>
+  </p>
+  
+  <br><br>
+</div>
+
+<%= button_to "Pay", shopping_lists_path,  :class => "btn new-shopping_list-button", :method => :get %>
+
+  <% end %>

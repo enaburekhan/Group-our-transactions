@@ -1,32 +1,69 @@
-<%= form_with(model: shopping_list, local: true) do |form| %>
+<!--<%#= form_with(model: shopping_list, local: true) do |form| %>
   <% if shopping_list.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(shopping_list.errors.count, "error") %> prohibited this shopping_list from being saved:</h2>
+      <h2><%#= pluralize(shopping_list.errors.count, "error") %> prohibited this shopping_list from being saved:</h2>
 
       <ul>
         <% shopping_list.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li><%#= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%#= form.label :name %>
+    <%#= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :amount %>
-    <%= form.number_field :amount %>
+    <%#= form.label :amount %>
+    <%#= form.number_field :amount %>
   </div>
 
   <div class="field">
-    <%= form.label :author_id %>
-    <%= form.number_field :author_id %>
+    <%#= form.label :author_id %>
+    <%#= form.number_field :author_id %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%#= form.submit %>
   </div>
-<% end %>
+<% end %>-->
+
+<div>
+  <%= form_with(model: shopping_list, local: true) do |form| %>
+    
+    <div class="field">
+      <div class="form-input">
+        <%= form.text_field :name, class: 'form-control font-label-style',placeholder: "Name of the shopping_list"  %>
+      </div>
+    </div>
+
+    <div class="field">          
+      <div class="form-input">
+        <%= form.number_field :amount, class: 'form-control font-label-style',placeholder: "amount example:15" %>
+      </div>
+    </div>
+    <br>
+    <div><%= form.label :icon, class: "font-label-style" %></div>
+    
+    <div class="field check-input-style">      
+      <% @group.each do |prod| %>      
+        <div class="check-item-style">
+          <%= check_box_tag "shopping_list[group_ids][#{prod.id}]", prod.id, @shopping_list.group_ids.include?(prod.id)  %>              
+          <%= label_tag(:icon, "#{prod.name}", class: "font-label-style") %>
+          <i class="<%= prod.icon %> icon-size-group"></i> 
+        </div>
+      <% end %>
+    </div>
+    
+    <div class="actions">
+      <div>        
+        
+        <%= form.submit "Save", class: "btn new-shopping_list-button" %>
+        
+      </div>
+    </div>
+  <% end %>
+</div>

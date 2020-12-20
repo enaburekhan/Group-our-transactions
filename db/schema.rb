@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_20_160051) do
+ActiveRecord::Schema.define(version: 2020_12_20_161638) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2020_12_20_160051) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer "amount"
+    t.string "transaction_code"
+    t.integer "shopping_list_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shopping_list_id"], name: "index_payments_on_shopping_list_id"
   end
 
   create_table "shopping_lists", force: :cascade do |t|
@@ -43,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_160051) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "payments", "shopping_lists"
   add_foreign_key "shopping_lists_groups", "groups"
   add_foreign_key "shopping_lists_groups", "shopping_lists"
 end

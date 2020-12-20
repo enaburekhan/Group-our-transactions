@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'application#home'
 
   #sessions routes
   get     '/login',   to: 'sessions#signin'
@@ -19,6 +20,9 @@ Rails.application.routes.draw do
   #users routes
   get     '/signup',  to: 'users#new'
   post    '/signup',  to: 'users#create'
-  resources :users, only: [ :show, :new, :create]  
+  resources :users, only: [ :show, :new, :create] 
+  
+  #payments routes
+  resources :payments, only: [ :create] 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

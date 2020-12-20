@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  #sessions routes
+  get     '/login',   to: 'sessions#signin'
+  post    '/login',   to: 'sessions#create'
+  delete  '/logout',  to: 'sessions#destroy'
+
   #shopping_list routes
   resources :shopping_lists, only: [:index, :show, :new, :edit, :create, :update]
   get     '/external_shopping_lists',  to: 'shopping_lists#list_external'

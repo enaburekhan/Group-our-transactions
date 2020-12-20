@@ -20,7 +20,7 @@
     border-bottom: 1px solid #878a8f;
 }
 
-.item-wishlist {
+.item-shopping_list {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
@@ -29,33 +29,33 @@
     background-color: #fff;
     margin: 25px 5px 0 5px;
 }
-.icon-wishlist{
+.icon-shopping_list{
     font-size: 3rem;
     padding: 0 0 0 30px;
     min-width: 20vw;    
 }
-.icon-wishlist a:hover{
+.icon-shopping_list a:hover{
     font-size: 3.5rem;
     font-weight: 600;
     
 }
 
-.price-wishlist{
+.amount-shopping_list{
     font-size: 2rem;
     
 }
 
-.content-wishlist{
+.content-shopping_list{
     color: #878a8f;
     margin: 0 0 0 -165px;  
     
 }
-.content-wishlist h2{
+.content-shopping_list h2{
     word-wrap: break-word;
     max-width: 40vw;
 }
 
-.pay-wishlist input{       
+.pay-shopping_list input{       
     font-size: 2rem;
     background-color: #5fb523;
 }

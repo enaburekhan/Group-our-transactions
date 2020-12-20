@@ -1,45 +1,13 @@
-<!--<p id="notice"><%#= notice %></p>
-
-<h1>Shopping Lists</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Amount</th>
-      <th>Author</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%# @shopping_lists.each do |shopping_list| %>
-      <tr>
-        <td><%= shopping_list.name %></td>
-        <td><%= shopping_list.amount %></td>
-        <td><%= shopping_list.author_id %></td>
-        <td><%= link_to 'Show', shopping_list %></td>
-        <td><%= link_to 'Edit', edit_shopping_list_path(shopping_list) %></td>
-        <td><%= link_to 'Destroy', shopping_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%#= link_to 'New Shopping List', new_shopping_list_path %>-->
-
 <% provide(:navbar_page_title, "all my shopping_lists") %>
 
 <div class="options-order">
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-  <div><%= link_to 'Most recent', wishlists_path, class:"btn btn-link link-login-submit" %></div>
+  <div><%= link_to 'Most recent', shopping_lists_path, class:"btn btn-link link-login-submit" %></div>
   <div><%= link_to 'Most ancient', list_order_ancient_path, class:"btn btn-link link-login-submit" %></div>
 </div>
 <div class="d-flex justify-content-between align-items-end  gitf-style">
   <div>Gift credit</div>
-  <div><%=  number_to_currency(current_user.all_total_amount, precision: 2)   %></div>
+  <div><%=  number_to_currency(current_user.all_total_amount, precision: 2)  %></div>
 </div>    
 <br>
 

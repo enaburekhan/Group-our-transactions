@@ -14,7 +14,7 @@ class User < ApplicationRecord
   def list_shopping_lists_join_groups
     new_list = []
     shopping_lists.includes(:shopping_lists_groups).each do |item|
-      new_list << item unless Shopping_listsGroup.find_by(shopping_list_id: item.id).present?
+      new_list << item unless ShoppingListsGroup.find_by(shopping_list_id: item.id).present?
     end
     new_list
   end

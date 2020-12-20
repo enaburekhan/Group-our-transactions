@@ -35,7 +35,7 @@
 
   <p class="font-label-style checkout-items border-bottom pb-5">
     <strong>Total Payment:</strong>
-    <%= total_payment= number_to_currency(@shopping_list.amount + @shopping_list.price*0.3, precision: 2)  %>    
+    <%= total_payment= number_to_currency(@shopping_list.amount + @shopping_list.amount*0.3, precision: 2)  %>    
     <%= form.hidden_field :amount, :value => @shopping_list.amount + @shopping_list.amount*0.3 %>
     <%= form.hidden_field :shopping_list_id, :value => @shopping_list.id %>
   </p>

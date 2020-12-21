@@ -1,5 +1,38 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe ' model test cases ' do
+    fixtures :users
+    fixtures :shopping_lists
+    fixtures :groups
+
+    context 'validates field' do
+      it 'name must be valid' do
+        expect(groups(:one)).to be_valid
+      end
+      it 'name must not be valid' do
+        groups(:one).name = nil
+        expect(groups(:one)).not_to be_valid
+      end
+
+      it 'icon must not be valid' do
+        groups(:one).icon = nil
+        expect(groups(:one)).not_to be_valid
+      end
+
+      it 'validates group name already exists' do
+        group_new = Group.new(name: 'Magpies', icon: 'fab fa-500px', user_id: 1)
+        group_new.valid?
+        expect(group_new.errors[:name]).to include('Group name already exists')
+      end
+    end
+
+    context 'must include the message' do
+      it 'length between 1 to 30 characters' do
+        groups(:one).name = ''
+        groups(:one).valid?
+        expect(groups(:one).errors[:name]).to include('Group name length must be between 1 to 30 characters')
+      end
+    end
+  end
 end

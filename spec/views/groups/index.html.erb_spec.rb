@@ -1,25 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe "groups/index", type: :view do
+RSpec.describe 'groups/index', type: :view do
+  fixtures :groups
+
   before(:each) do
-    assign(:groups, [
-      Group.create!(
-        name: "Name",
-        icon: "Icon",
-        user_id: 2
-      ),
-      Group.create!(
-        name: "Name",
-        icon: "Icon",
-        user_id: 2
-      )
-    ])
+    assign(:groups, [groups(:one), groups(:two)])
   end
 
-  it "renders a list of groups" do
+  it 'renders a list of groups' do
     render
-    assert_select "tr>td", text: "Name".to_s, count: 2
-    assert_select "tr>td", text: "Icon".to_s, count: 2
-    assert_select "tr>td", text: 2.to_s, count: 2
+    expect(response).to render_template('index')
+    expect(rendered).to match(/Magpies/)
+    expect(rendered).to match(/fab fa-500px/)
+    expect(rendered).to match(/Cocodrilles/)
+    expect(rendered).to match(/fab fa-accusoft/)
   end
 end

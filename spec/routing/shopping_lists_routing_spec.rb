@@ -30,9 +30,5 @@ RSpec.describe ShoppingListsController, type: :routing do
     it "routes to #update via PATCH" do
       expect(patch: "/shopping_lists/1").to route_to("shopping_lists#update", id: "1")
     end
-
-    it "routes to #destroy" do
-      expect(delete: "/shopping_lists/1").to route_to("shopping_lists#destroy", id: "1")
-    end
   end
 end

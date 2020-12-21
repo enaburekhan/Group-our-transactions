@@ -38,6 +38,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -52,7 +53,7 @@ group :development do
   gem 'rubocop'
 
   # Adds support for Capybara system testing and selenium driver
-  gem 'factory_bot_rails'
+ 
   gem 'sqlite3', '~> 1.4', '>= 1.4.2'
   
 end

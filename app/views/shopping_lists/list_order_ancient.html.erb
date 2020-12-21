@@ -28,7 +28,7 @@
       <h2><%= link_to shopping_list.name, shopping_list %></h2>
       <h3><%= shopping_list.created_at.strftime("%b %d, %Y - %I:%M%p" ).downcase %></h3>
     </div>
-    <div class="amount-shopping_list"><%= number_to_currency(shopping_list.price, precision: 2)  %></div>
+    <div class="amount-shopping_list"><%= number_to_currency(shopping_list.amount, precision: 2)  %></div>
   </div>
 <% end %>
 

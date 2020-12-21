@@ -19,12 +19,14 @@ nav {
 }
 
 .nav-top-bar{
-    padding: 0 0 0 0;
+    padding: 0 0 0 15px;
     margin: 0 0 0 -15px ;
     width: 100vw;
     height: 10vh;
     font-size: 2.5rem;
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav-top-bar a{
@@ -44,6 +46,7 @@ nav {
     padding-right: 30px;
     color: #fff;
     font-size: 2.5rem;
+    text-decoration: none;
 }
 
 .message-style{

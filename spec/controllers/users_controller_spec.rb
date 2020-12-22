@@ -8,10 +8,6 @@
      let(:user2) { users(:two) }
      let(:user) { FactoryBot.create :user }
  
-     before { log_in user }
-     before { log_in user }
-     before { log_in user2 }
- 
      describe '#show' do
        it 'should return the user with given id' do
          new_user = FactoryBot.create :user

@@ -49,7 +49,7 @@ RSpec.describe User, type: :model do
 
     context 'validates methods' do
       it 'has none to begin with' do
-        expect(users(:one).all_total_amount).to eq 10
+        expect(users(:one).all_total_amount).to eq 15
       end
     end
   end

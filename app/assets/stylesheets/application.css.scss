@@ -1,6 +1,5 @@
 @import 'bootstrap'; 
-
-// @import '@fortawesome/fontawesome-free';    
+   
 @import 'navbar';
 @import 'login';
 @import 'profile';
@@ -8,12 +7,6 @@
 @import 'home';
 @import 'togglemenu';
 @import 'forms';
-
-@font-face {
-    font-family: 'proximanova';
-    src: url('FontsFree-Net-Proxima-Nova-Bold.otf') 
-    format('opentype');
-}
 
 body{
     background-color: #3778c2;

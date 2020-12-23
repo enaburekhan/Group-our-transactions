@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   #sessions routes
   get     '/login',   to: 'sessions#signin'
   post    '/login',   to: 'sessions#create'
-  get  '/logout',  to: 'sessions#destroy'
+  delete  '/logout',  to: 'sessions#destroy'
 
   #shopping_list routes
   resources :shopping_lists, only: [:index, :show, :new, :edit, :create, :update]

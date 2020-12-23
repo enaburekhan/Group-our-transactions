@@ -1,4 +1,4 @@
-# Group our ShoppingList
+# Group our ShoppingList: Eric Enaburekhan Ruby on Rails Capstone project
 
 > Group our ShoppingList is a web application with a responsive behavior for mobile usage built with Ruby on Rails. This mobile web application is use for grouping payments by a goal with your family/friends. You can find the full requirements [here](https://www.notion.so/Group-our-transactions-ccea2b6642664540a70de9f30bdff4ce). Inspecting this project, you can find the following options (login, sign-in, all my shopping_list, all my external shopping_list, all groups and log out and a checkout a shopping_list as an additional feature).
 One is required to sign-up/sign-in before you can starts using the application. Group our ShoppingList is similar to an online store where you purchase items grouped into a category called shopping cart while the list of items grouped into the category of I will save and review later are referred to as shopping list. Thus, Group our ShoppingList app allows you to group and save a list of items you review and purchase on a later date.
@@ -12,7 +12,7 @@ If you don't wan your item/product to be associated with any category, you can c
 
 ## Live Demo
 
-[social-media](https://enaburekhan-social-media-app.herokuapp.com/)
+[Group our ShoppingList]()
 
 
 ## Getting Started
@@ -21,8 +21,8 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Ruby: 2.6.3
-Rails: 5.2.3
+Ruby: 2.7.0
+Rails: 6.0.3.4
 Postgres: >=9.5
 
 ### Setup
@@ -40,17 +40,30 @@ Setup database with:
    rails db:migrate
 ```
 
-### Github Actions
+### Setup
 
-To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
+The project repository can be found in [GitHub link](https://github.com/enaburekhan/Group-our-transactions/tree/feature-branch) or just clone the project using this command.
 
-1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
-2. Create the `feature/branch` and push.
-3. Start working on your milestone as usual.
-4. Open a PR from the `feature/branch` when your work is done.
+Using SSH 
 
+# git clone  git@github.com:enaburekhan/Group-our-transactions.git
 
-### Usage
+Using HTTPS
+
+# git clone  https://github.com/enaburekhan/Group-our-transactions.git
+
+Open terminal on your workspace with
+cd /home/workspace/Group-our-transactions
+
+### Install
+To get started with the app, clone the repo, and then install the needed gems:
+
+# bundle install 
+Next, migrate the database:
+
+# rails db:migrate
+
+### Usage   
 
 Start server with:
 
@@ -66,11 +79,39 @@ Open `http://localhost:3000/` in your browser.
     rpsec --format documentation
 ```
 
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
+> If the test suite passes, you'll be ready to run the app in a local server:
 
 ### Deployment
+To deploy to heroku first login in heroku
 
-https://enaburekhan-social-media-app.herokuapp.com/
+# heroku login
+Create a new project in heroku
+
+# heroku create
+You can verify that the remote was added to your project by running:
+
+# git config --list | grep heroku
+# git push heroku master
+Migrate your database
+
+heroku run rails db:migrate
+
+### Tools used on this project
+- Visual Studio Code
+- Rubocop for Visual Studio Code
+- Bootstrap
+- Rspec
+- Jquery
+- Factory Bot
+
+### Watch The Live Version
+click on the link to watch the [live version]()
+
+## Extra feature added to the project
+- Click on the checkout button of the specific shopping_list.
+- Proceed with the payment.
+- After saving the payment the shopping_list will disappear from the list as shown in the demo
+
 
 ## Author
 
@@ -85,7 +126,7 @@ https://enaburekhan-social-media-app.herokuapp.com/
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/enaburekhan/Group-our-transactions/issues).
 
 ## Show your support
 
@@ -93,10 +134,11 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-Many thanks to Microverse for giving us the opportunity to build this challenging and fascinating project
+- [Design idea by Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
+- [Creative Commons](https://creativecommons.org/licenses/by-nc/4.0/).
 
-## 📝 Copyright
+## 📝 License
 
-This is a project developed by Microverse Student as part of skill curriculum.
+This project is licensed under the MIT License.
 
 

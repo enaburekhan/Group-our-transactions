@@ -10,8 +10,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
-  def show
-  end
+  def show; end
 
   # GET /users/new
   def new
@@ -27,12 +26,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-      if @user.save
-        log_in @user
-        redirect_to shopping_lists_path, notice: 'User was successfully created.' 
-      else
-        redirect_to signup_path, notice: @user.errors[:username].first
-      end
+    if @user.save
+      log_in @user
+      redirect_to shopping_lists_path, notice: 'User was successfully created.'
+    else
+      redirect_to signup_path, notice: @user.errors[:username].first
+    end
   end
 
   # PATCH/PUT /users/1
@@ -60,13 +59,14 @@ class UsersController < ApplicationController
   # end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:username)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:username)
+  end
 end

@@ -6,19 +6,19 @@ module ShoppingListsHelper
     end
     sum
   end
-  
+
   private
-  
+
   def set_shopping_list
     @shopping_list = ShoppingList.find(params[:id])
   end
-  
+
   def set_group
     @group = Group.find(params[:id])
   end
-  
+
   def shopping_list_params
     params.require(:shopping_list).permit(:name, :amount,
-                                     groups_ids: %i[id icon])
-  end    
+                                          groups_ids: %i[id icon])
+  end
 end

@@ -1,8 +1,7 @@
- require 'rails_helper'
+require 'rails_helper'
 
- RSpec.describe ShoppingListsController, type: :controller do
+RSpec.describe ShoppingListsController, type: :controller do
   describe ' controller test cases ' do
-   
     describe '#index' do
       subject { get :index }
       it 'does not render a different template' do

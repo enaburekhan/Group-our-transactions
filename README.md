@@ -1,8 +1,10 @@
-# Group our ShoppingList: Eric Enaburekhan Ruby on Rails Capstone project
+# Group our ShoppingList
 
-> Group our ShoppingList is a web application with a responsive behavior for mobile usage built with Ruby on Rails. This mobile web application is use for grouping payments by a goal with your family/friends. You can find the full requirements [here](https://www.notion.so/Group-our-transactions-ccea2b6642664540a70de9f30bdff4ce). Inspecting this project, you can find the following options (login, sign-in, all my shopping_list, all my external shopping_list, all groups and log out and a checkout a shopping_list as an additional feature).
-One is required to sign-up/sign-in before you can starts using the application. Group our ShoppingList is similar to an online store where you purchase items grouped into a category called shopping cart while the list of items grouped into the category of I will save and review later are referred to as shopping list. Thus, Group our ShoppingList app allows you to group and save a list of items you review and purchase on a later date.
-If you don't wan your item/product to be associated with any category, you can create a shopping list that will not be associated with any group or category. The checkout is an extra feature I added so one can be able to proceed with the check out for any of the items you saved. 
+### Eric Enaburekhan Ruby on Rails Capstone project
+
+> Group our ShoppingList is a web application with a responsive behavior for mobile usage built with Ruby on Rails. This mobile web application is use for grouping payments by a goal with your family/friends. You can find the full requirements [here](https://www.notion.so/Group-our-transactions-ccea2b6642664540a70de9f30bdff4ce). Inspecting this project, you can find the following options (login, sign-in, all my shopping_list, all my external shopping_list, all groups, log out and a checkout a shopping_list as an additional feature).
+One is required to sign-up/sign-in before you can starts using the application. Group our ShoppingList is similar to an online store where you purchase items grouped into a category called shopping cart while the list of items grouped into the category of I will save and review later are referred to as shopping list. Thus, Group our ShoppingList app allows you to group and save a list of items to review and purchase on a later date.
+If you don't want your item/product to be associated with any category, you can create a shopping list that will not be associated with any group or category. The checkout is an extra feature I added so one can be able to proceed with the check out for any of the items you saved. 
 
 ## Built With
 
@@ -21,11 +23,26 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Ruby: 2.7.0
-Rails: 6.0.3.4
-Postgres: >=9.5
+- Ruby v2.7.0
+- Rails: 6.0.3.4
+- Postgres: >=9.5
 
-### Setup
+### Setup   
+
+The project repository can be found in [GitHub link](https://github.com/enaburekhan/Group-our-transactions/tree/feature-branch) or just clone the project using this command.
+
+Using SSH 
+
+### git clone  git@github.com:enaburekhan/Group-our-transactions.git
+
+Using HTTPS
+
+### git clone  https://github.com/enaburekhan/Group-our-transactions.git
+
+Open terminal on your workspace with
+cd /home/workspace/Group-our-transactions
+
+### Install
 
 Instal gems with:
 
@@ -39,29 +56,6 @@ Setup database with:
    rails db:create
    rails db:migrate
 ```
-
-### Setup
-
-The project repository can be found in [GitHub link](https://github.com/enaburekhan/Group-our-transactions/tree/feature-branch) or just clone the project using this command.
-
-Using SSH 
-
-# git clone  git@github.com:enaburekhan/Group-our-transactions.git
-
-Using HTTPS
-
-# git clone  https://github.com/enaburekhan/Group-our-transactions.git
-
-Open terminal on your workspace with
-cd /home/workspace/Group-our-transactions
-
-### Install
-To get started with the app, clone the repo, and then install the needed gems:
-
-# bundle install 
-Next, migrate the database:
-
-# rails db:migrate
 
 ### Usage   
 
@@ -81,17 +75,17 @@ Open `http://localhost:3000/` in your browser.
 
 > If the test suite passes, you'll be ready to run the app in a local server:
 
-### Deployment
+# Deployment
 To deploy to heroku first login in heroku
 
-# heroku login
+### heroku login
 Create a new project in heroku
 
-# heroku create
+### heroku create
 You can verify that the remote was added to your project by running:
 
-# git config --list | grep heroku
-# git push heroku master
+### git config --list | grep heroku 
+### git push heroku master
 Migrate your database
 
 heroku run rails db:migrate

@@ -48,9 +48,9 @@ Using HTTPS
 Open terminal on your workspace with
 cd /home/workspace/Group-our-transactions
 
-### Install
+### Installation
 
-Instal gems with:
+Install gems with:
 
 ```
 bundle install

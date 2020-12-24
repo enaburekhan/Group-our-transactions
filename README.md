@@ -3,7 +3,7 @@
 ### Eric Enaburekhan Ruby on Rails Capstone project
 
 > Group our ShoppingList is a web application with a responsive behavior for mobile usage built with Ruby on Rails. This mobile web application is use for grouping payments by a goal with your family/friends. You can find the full requirements [here](https://www.notion.so/Group-our-transactions-ccea2b6642664540a70de9f30bdff4ce). Inspecting this project, you can find the following options (login, sign-in, all my shopping_list, all my external shopping_list, all groups, log out and a checkout a shopping_list as an additional feature).
-One is required to sign-up/sign-in before you can starts using the application. Group our ShoppingList is similar to an online store where you purchase items grouped into a category called shopping cart while the list of items grouped into the category of I will save and review later are referred to as shopping list. Thus, Group our ShoppingList app allows you to group and save a list of items to review and purchase on a later date.
+One is required to sign-up/sign-in before you can start using the application. Group our ShoppingList is similar to an online store where you purchase items grouped into a category called shopping cart while the list of items grouped into the category of I will save and review later are referred to as shopping list. Thus, Group our ShoppingList app allows you to group and save a list of items to review and purchase on a later date.
 If you don't want your item/product to be associated with any category, you can create a shopping list that will not be associated with any group or category. The checkout is an extra feature I added so one can be able to proceed with the check out for any of the items you saved. 
 
 ## Built With
@@ -12,9 +12,15 @@ If you don't want your item/product to be associated with any category, you can 
 - Ruby on Rails v6.3.0.4
 - Git
 
+### Screenshots
+<p float = 'left'>
+    <img src="img/sign-up.png" alt="Group our transaction home page">
+    <img src="img/checkout-page.png" alt="extra feature added called checkout">
+</p>
+
 ## Live Demo
 
-[Group our ShoppingList]()
+[Group our ShoppingList](https://www.loom.com/share/9b145831f6914901a0b5182a3afef5cc)
 
 
 ## Getting Started
@@ -99,12 +105,12 @@ heroku run rails db:migrate
 - Factory Bot
 
 ### Watch The Live Version
-click on the link to watch the [live version]()
+click on the link to watch the [live version](https://enaburekhan-shoppinglist-app.herokuapp.com/)
 
 ## Extra feature added to the project
 - Click on the checkout button of the specific shopping_list.
 - Proceed with the payment.
-- After saving the payment the shopping_list will disappear from the list as shown in the demo
+- After saving the payment the shopping_list will disappear from the list.
 
 
 ## Author

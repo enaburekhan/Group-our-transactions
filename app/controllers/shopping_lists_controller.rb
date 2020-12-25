@@ -67,7 +67,7 @@ class ShoppingListsController < ApplicationController
           @shopping_list.groups << Group.find(prod)
         end
       else
-        ShoppingListsGroup.destroy_lst
+        ShoppingListsGroup.where(shopping_list_id: params[:id]).destroy_all
       end
       redirect_to shopping_lists_path, notice: 'ShoppingList was successfully udpated.'
     elsif @shopping_list.errors[:amount].present?

@@ -4,10 +4,6 @@ module ApplicationHelper
   end
 
   def login
-    if logged_in?
-      render 'layouts/navbar'
-    end  
+    render 'layouts/navbar' if logged_in?
   end
-
 end
-

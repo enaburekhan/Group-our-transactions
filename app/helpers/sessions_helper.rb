@@ -37,4 +37,3 @@ module SessionsHelper
     return link_to signup_path unless logged_in?
   end
 end
-

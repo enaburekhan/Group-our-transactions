@@ -11,15 +11,7 @@
 <p class="font-label-style">
   <strong>Icon:</strong>
   
-   <% if @shopping_list.icons? %>
-          <td> 
-            <% @shopping_list.groups.each do |type| %> 
-              <i class="<%= type.icon %>"></i> 
-            <% end %>
-          </td>
-        <% else %>
-          <td> <i class="fas fa-question-circle"></i> </td>
-    <% end%> 
+    <%= render show_shopping_result %>
 </p>
 <br><br>
 <%= link_to 'Edit', edit_shopping_list_path(@shopping_list), class: 'font-label-style link-edit-back' %> |

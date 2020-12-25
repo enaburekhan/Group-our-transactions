@@ -11,9 +11,8 @@
     <div class="login-nav-bar">
       <ul class="nav-login">
         <li class="nav-item">      
-          <% if !logged_in?  %>
+          <% link_login %>
           <%= f.submit "Log in", class: "btn btn-link link-login-submit" %>
-          <% end %>
         </li>      
       </ul>
     </div>

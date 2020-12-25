@@ -10,9 +10,7 @@
   </head>
 
   <body>
-    <% if logged_in?  %>
-      <%= render 'layouts/navbar'  %>    
-    <% end  %>              
+    <%= login %>              
     <% flash.each do |message_type, message| %>
        <div class="alert alert-info message-style"><%= message %></div>
     <% end %>
@@ -21,7 +19,7 @@
         <%= yield %>
       </div>
       <script src="https://kit.fontawesome.com/688a35b1eb.js" crossorigin="anonymous"></script>
-        
+       <%= debug(params) if Rails.env.development? %> 
     <main>
   </body>
 </html>

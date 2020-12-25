@@ -20,7 +20,7 @@
             <% end %>          
         <% else %>
            <i class="fas fa-question-circle"></i> 
-        <% end%>  
+        <% end%> 
     </div>
     <div class="content-shopping_list">
       <h2><%= link_to shopping_list.name, shopping_list %></h2>
@@ -29,6 +29,8 @@
     <div class="amount-shopping_list"><%= number_to_currency(shopping_list.amount, precision: 2)   %></div>
   </div>
 <% end %>
+
+  
 
 
 

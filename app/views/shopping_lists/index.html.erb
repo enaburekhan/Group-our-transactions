@@ -14,7 +14,7 @@
 <% @shopping_lists.each do |shopping_list| %>
   <div class="item-shopping_list">
     <div class="icon-shopping_list">
-       <% if shopping_list.icons? %>          
+       <% if shopping_list.icons? %>         
             <% shopping_list.groups.each do |type| %> 
               <i class="<%= type.icon %>"></i> 
               <br>
@@ -22,7 +22,8 @@
         <% else %>
           <i class="fas fa-question-circle"></i>
           <br>
-        <% end%>  
+        <% end%> 
+        <%#= group_shopping_icons %> 
     </div>
     <div class="content-shopping_list">
       <h2><%= link_to shopping_list.name, shopping_list %></h2>

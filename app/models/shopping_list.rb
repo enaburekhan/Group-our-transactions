@@ -13,10 +13,6 @@ class ShoppingList < ApplicationRecord
             numericality: { only_integer: true, message: 'Amount must be numeric' }
 
   def icons?
-    if shopping_lists_groups.present?
-      true
-    else
-      false
-    end
+    return true if shopping_lists_groups.present?
   end
 end

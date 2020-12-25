@@ -32,4 +32,9 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
   end
+
+  def link_login
+    return link_to signup_path unless logged_in?
+  end
 end
+

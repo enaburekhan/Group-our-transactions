@@ -20,7 +20,10 @@ If you don't want your item/product to be associated with any category, you can 
 
 ## Live Demo
 
-[Group our ShoppingList](https://www.loom.com/share/9b145831f6914901a0b5182a3afef5cc)
+[Group our ShoppingList](https://enaburekhan-shoppinglist-app.herokuapp.com/)
+
+## Video link
+[Group our shopping_list](https://www.loom.com/share/72e6ba867cb648f6b5986a878ee4048d)
 
 
 ## Getting Started

@@ -7,6 +7,10 @@ module ShoppingListsHelper
     sum
   end
 
+  def show_shopping_result 
+    @shopping_list.icons? ? 'show_content' : 'no_show_content'    
+  end
+
   private
 
   def set_shopping_list
@@ -21,4 +25,10 @@ module ShoppingListsHelper
     params.require(:shopping_list).permit(:name, :amount,
                                           groups_ids: %i[id icon])
   end
+
+  def shopping_icons 
+    @shopping_list.icons? ? 'this_content' : 'this_other_content'    
+  end
+  
 end
+

@@ -5,13 +5,7 @@
 
   <p class="font-label-style checkout-items border-bottom pb-5">
     <span>
-      <% if @shopping_list.icons? %>            
-          <% @shopping_list.groups.each do |type| %> 
-            <i class="<%= type.icon %>"></i> 
-          <% end %>            
-      <% else %>
-          <i class="fas fa-question-circle"></i> 
-      <% end%> 
+      <%= render shopping_icons %>               
     </span>
     <%= @shopping_list.name %>
   </p>

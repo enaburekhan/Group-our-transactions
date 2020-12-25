@@ -23,7 +23,7 @@ If you don't want your item/product to be associated with any category, you can 
 [Group our ShoppingList](https://enaburekhan-shoppinglist-app.herokuapp.com/)
 
 ## Video link
-[Group our shopping_list](https://www.loom.com/share/72e6ba867cb648f6b5986a878ee4048d)
+[Group our shopping_list](https://www.loom.com/share/53d45986d3fe4e21afbfee3d1dd87309)
 
 
 ## Getting Started

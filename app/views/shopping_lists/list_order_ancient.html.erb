@@ -1,0 +1,37 @@
+<% provide(:navbar_page_title, "all my shopping_lists") %>
+
+<div class="options-order">
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <div><%= link_to 'Most recent', shopping_lists_path, class:"btn btn-link link-login-submit" %></div>
+  <div><%= link_to 'Most ancient', list_order_ancient_path, class:"btn btn-link link-login-submit" %></div>
+</div>
+<div class="d-flex justify-content-between align-items-end  gitf-style">
+  <div>Gift credit</div>
+  <div><%=  number_to_currency(current_user.all_total_amount, precision: 2)   %></div>
+</div>    
+<br>
+
+<% @shopping_lists.each do |shopping_list| %>
+  <div class="item-shopping_list">
+    <div class="icon-shopping_list">
+       <% if shopping_list.icons? %>          
+            <% shopping_list.groups.each do |type| %> 
+              <i class="<%= type.icon %>"></i> 
+              <br>
+            <% end %>          
+        <% else %>
+          <i class="fas fa-question-circle"></i>
+          <br>
+        <% end%>  
+    </div>
+    <div class="content-shopping_list">
+      <h2><%= link_to shopping_list.name, shopping_list %></h2>
+      <h3><%= shopping_list.created_at.strftime("%b %d, %Y - %I:%M%p" ).downcase %></h3>
+    </div>
+    <div class="amount-shopping_list"><%= number_to_currency(shopping_list.amount, precision: 2)  %></div>
+  </div>
+<% end %>
+
+
+
+<%= button_to "New", new_shopping_list_path,  :class => "btn new-shopping_list-button", :method => :get %>

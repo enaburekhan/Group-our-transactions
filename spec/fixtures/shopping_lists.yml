@@ -1,0 +1,17 @@
+one: 
+  name: "shopping_list1"
+  amount: 5
+  author_id: 1
+  active: true
+  
+two: 
+  name: "shopping_list2"
+  amount: 5
+  author_id: 1
+  active: true
+
+three: 
+  name: "shopping_list3"
+  amount: 5
+  author_id: 1
+  active: true
